@@ -24,7 +24,7 @@ export class ProdutosComponent implements OnInit {
   carregarProdutos(): void {
 
     this.myService.getProds().subscribe((prods) => {
-      console.log("retorno do rest: " + prods);
+      
       this.produtos = prods;
     });
 
