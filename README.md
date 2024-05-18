@@ -1,5 +1,5 @@
 # ecomtest
-projeto para conhecer recursos do angular.
+Projeto para conhecer recursos do angular.
 
 # mysql_commands
 
