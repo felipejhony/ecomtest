@@ -10,6 +10,7 @@ import { ButtonModule } from 'primeng/button';
 import { ImageModule } from 'primeng/image';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TagModule } from 'primeng/tag';
+import { AccordionModule } from 'primeng/accordion';
 
 
 
@@ -27,7 +28,8 @@ import { TagModule } from 'primeng/tag';
     ButtonModule,
     ImageModule,
     BrowserAnimationsModule,
-    TagModule
+    TagModule,
+    AccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

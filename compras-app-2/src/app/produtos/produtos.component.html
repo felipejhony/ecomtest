@@ -1,30 +1,52 @@
 <p-card header="Produtos">
-    <p-table [value]="produtos" styleClass="p-datatable-header p-datatable-striped">
+    <p-table [value]="produtos"
+    dataKey="id"
+    responsiveLayout="stack" 
+    [breakpoint]="'800px'"
+    styleClass="p-datatable-header p-datatable-striped p-datatable-sm p-datatable-gridlines">
+
         <ng-template pTemplate="header">
             <tr>
-                <th>Código</th>
-                <th>Imagem</th>
+                <th></th>
+                <th  class="center-text">Código</th>
+                <th class="center-text">Imagem</th>
                 <th>Descrição</th>
                 <th>Categoria</th>
                 <th>Preço</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-item>
+        <ng-template pTemplate="body" let-item let-expanded="expanded">
             <tr>
+                <td>
+                    
+                    <button type="button" pButton pRipple [pRowToggler]="item"
+                        class="p-button-text p-button-rounded p-button-plain mr-2"
+                        [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                    </button>
+                </td>
 
-                <td><p-tag severity="warning" styleClass="full-width-text" value="{{ item.id }}" /></td>
+                <td class="center-text"><span class="p-column-title">Id</span> {{ item.id }}</td>
 
-                <td><p-image src="{{item.imagem}}" previewImageSrc="{{item.imagem}}" alt="Image" [preview]="true"
-                        width="100" class="table-image" /></td>
-                <td>{{ item.descricao }}</td>
+                <td class="center-text"><span class="p-column-title">Imagem</span> <p-image src="{{item.imagem}}" previewImageSrc="{{item.imagem}}" alt="Image" [preview]="true"
+                        width="100" styleClass="table-image" /></td>
+                <td><span class="p-column-title">Descrição</span> {{ item.descricao }}</td>
 
-                <td><p-tag severity="danger" [rounded]="true" styleClass="full-width-text"
-                        value="{{ item.categoria }}" /></td>
+                <td><span class="p-column-title">Categoria</span> <p-tag severity="warning" [rounded]="true" styleClass="full-width-text"
+                        value="{{item.categoria}}" /></td>
 
-                <td><p-button [rounded]="true" styleClass="full-width-btn" label="{{ item.preco | currency:'BRL'}}" />
+                <td><span class="p-column-title">Preço</span> <p-button [rounded]="true" severity="secondary"  styleClass="full-width-btn" label="{{ item.preco | currency:'BRL'}}" />
                 </td>
             </tr>
         </ng-template>
+
+        <ng-template pTemplate="rowexpansion" let-item >
+            <tr>
+                <td colspan="6">
+                    <p>Detalhes adicionais para o produto {{ item.id }}</p>
+                </td>
+            </tr>
+        </ng-template>
+
         <ng-template pTemplate="summary">
             <div>
                 Total de Produtos: {{produtos ? produtos.length : 0 }}

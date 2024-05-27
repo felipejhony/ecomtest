@@ -17,14 +17,11 @@ export class ProdutosComponent implements OnInit {
     this.carregarProdutos();
   }
 
-  title = 'compras-app-2';
-
   produtos: Produto[] = [];
 
   carregarProdutos(): void {
 
     this.myService.getProds().subscribe((prods) => {
-      
       this.produtos = prods;
     });
 
