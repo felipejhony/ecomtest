@@ -1,35 +1,27 @@
-// :host ::ng-deep .p-datatable-header tr>th {
-//     background-color: var(--primary-color);
-//     color: white;
-// }
-
-:host ::ng-deep .full-width-btn {
-    // width: 100%;
-    box-sizing: border-box;
+:host ::ng-deep .p-datatable-header tr>th {
+    background-color: var(--primary-color);
+    color: white;
 }
-
-// th {
-//     text-align: center;
-// }
-
-// td {
-//     text-align: center;
-//     box-sizing: border-box;
-// }
 
 :host ::ng-deep .table-image {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
 }
 
-:host ::ng-deep .full-width-text {
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-}
+// :host ::ng-deep .full-width-text {
+//     width: 100%;
+//     height: 100%;
+//     align-items: center;
+//     justify-content: center;
+//     box-sizing: border-box;
+// }
 
 .center-text {
     text-align: center;
+    font-weight: bold;
 }
+
+.bold-text {
+    font-weight: bold;
+}
+

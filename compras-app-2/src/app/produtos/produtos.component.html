@@ -25,16 +25,16 @@
                     </button>
                 </td>
 
-                <td class="center-text"><span class="p-column-title">Id</span> {{ item.id }}</td>
+                <td class="center-text bold-text"><span class="p-column-title">Código</span> {{ item.id }}</td>
 
                 <td class="center-text"><span class="p-column-title">Imagem</span> <p-image src="{{item.imagem}}" previewImageSrc="{{item.imagem}}" alt="Image" [preview]="true"
                         width="100" styleClass="table-image" /></td>
-                <td><span class="p-column-title">Descrição</span> {{ item.descricao }}</td>
+                <td class="bold-text">{{item.descricao}}</td>
 
-                <td><span class="p-column-title">Categoria</span> <p-tag severity="warning" [rounded]="true" styleClass="full-width-text"
+                <td class="center-text"> <span class="p-column-title">Categoria</span> <p-tag severity="warning" [rounded]="true" styleClass="full-width-text"
                         value="{{item.categoria}}" /></td>
 
-                <td><span class="p-column-title">Preço</span> <p-button [rounded]="true" severity="secondary"  styleClass="full-width-btn" label="{{ item.preco | currency:'BRL'}}" />
+                <td class="center-text"><span class="p-column-title">Preço</span> <p-button [rounded]="true" severity="primary"  styleClass="full-width-btn" label="{{ item.preco | currency:'BRL'}}" />
                 </td>
             </tr>
         </ng-template>

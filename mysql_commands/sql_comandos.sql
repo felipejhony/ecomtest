@@ -23,3 +23,6 @@ WHERE id IN (
         LIMIT 4
     ) AS subquery
 );
+
+-- @Block
+UPDATE PRODUTO SET DESCRICAO = 'Macbook 12 pro relíquia dos anos 1800' where id = 1;
