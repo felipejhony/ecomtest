@@ -11,13 +11,19 @@ import { ImageModule } from 'primeng/image';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TagModule } from 'primeng/tag';
 import { AccordionModule } from 'primeng/accordion';
+import { ProdutoFrmComponent } from './produtos/produto-frm/produto-frm.component';
+import { TooltipModule } from 'primeng/tooltip';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProdutosComponent
+    ProdutosComponent,
+    ProdutoFrmComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,11 @@ import { AccordionModule } from 'primeng/accordion';
     ImageModule,
     BrowserAnimationsModule,
     TagModule,
-    AccordionModule
+    AccordionModule,
+    TooltipModule,
+    InputTextModule,
+    InputNumberModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

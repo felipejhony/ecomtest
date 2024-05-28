@@ -1,0 +1,22 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="p-field">
+        <label for="image">Link</label>
+        <input id="image" type="text" pInputText formControlName="image" />
+    </div>
+    <div class="p-field description">
+        <label for="description">Descrição do Produto</label>
+        <input  id="description" type="text" pInputText formControlName="description" />
+    </div>
+    <div class="p-field">
+        <label for="category">Categoria do Produto</label>
+        <input id="category" type="text" pInputText formControlName="category" />
+    </div>
+    <div class="p-field">
+        <label for="price">Preço</label>
+        <p-inputNumber inputId="price" formControlName="price" mode="currency" currency="BRL"
+            locale="pt-BR"></p-inputNumber>
+    </div>
+    <div style="align-content: end;">
+        <p-button [rounded]="true" severity="primary" type="submit" styleClass="full-width-btn" label="Salvar" />
+    </div>
+</form>

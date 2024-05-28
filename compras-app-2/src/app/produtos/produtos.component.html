@@ -20,6 +20,8 @@
                 <td>
                     
                     <button type="button" pButton pRipple [pRowToggler]="item"
+                        pTooltip="Clique para alterar" 
+                        tooltipPosition="top" 
                         class="p-button-text p-button-rounded p-button-plain mr-2"
                         [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
                     </button>
@@ -42,7 +44,7 @@
         <ng-template pTemplate="rowexpansion" let-item >
             <tr>
                 <td colspan="6">
-                    <p>Detalhes adicionais para o produto {{ item.id }}</p>
+                    <app-produto-frm></app-produto-frm>
                 </td>
             </tr>
         </ng-template>
