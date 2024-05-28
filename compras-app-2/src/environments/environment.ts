@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'http://localhost:8080/comprasrest/webapi'
+    apiUrl: 'http://10.100.0.102:8080/comprasrest/webapi'
   };
