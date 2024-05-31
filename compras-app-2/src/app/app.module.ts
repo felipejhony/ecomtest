@@ -15,7 +15,7 @@ import { ProdutoFrmComponent } from './produtos/produto-frm/produto-frm.componen
 import { TooltipModule } from 'primeng/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -39,7 +39,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     TooltipModule,
     InputTextModule,
     InputNumberModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

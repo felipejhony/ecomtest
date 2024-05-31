@@ -1,9 +1,9 @@
-export interface Produto {
+export class Produto {
     
-    id: number;
-    descricao: string;
-    preco: number;
-    imagem: string;
-    categoria: string;
+    id: number = 0;
+    descricao: string = "";
+    preco: number = 0;
+    imagem: string = "";
+    categoria: string = "";
 
 }

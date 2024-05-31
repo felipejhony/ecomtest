@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Produto } from '../../models/produto';
 
 @Component({
   selector: 'app-produto-frm',
@@ -7,20 +8,23 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrl: './produto-frm.component.scss'
 })
 export class ProdutoFrmComponent implements OnInit {
-  productForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.productForm = this.fb.group({
-      image: [''],
-      description: [''],
-      category: [''],
-      price: [null]
-    });
+  @Input() produto: Produto = new Produto;
+
+  produtoForm: FormGroup = new FormGroup({
+    id: new FormControl(1, Validators.required),
+    descricao: new FormControl('', Validators.required),
+    preco: new FormControl(null, [Validators.required, Validators.min(0.01)]),
+    imagem: new FormControl('', Validators.required),
+    categoria: new FormControl('', Validators.required)
+  });
+
+  ngOnInit(): void {
+    console.log(this.produto);
+    
+    this.produtoForm.patchValue(this.produto);
   }
 
-  ngOnInit(): void {}
-
   onSubmit() {
-    console.log(this.productForm.value);
   }
 }
