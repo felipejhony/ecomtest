@@ -19,7 +19,7 @@
             
             <!-- Propriedades do Hibernate -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
-            <property name="hibernate.show_sql" value="true"/> <!-- Exibir SQL no console -->
+            <property name="hibernate.show_sql" value="false"/> <!-- Exibir SQL no console -->
             <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- Atualizar automaticamente o esquema do banco de dados -->
         </properties>
     </persistence-unit>
