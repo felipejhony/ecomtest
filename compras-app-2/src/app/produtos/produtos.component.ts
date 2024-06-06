@@ -26,4 +26,8 @@ export class ProdutosComponent implements OnInit {
     });
 
   }
+
+  onProdutoAtualizado(produtoAtualizado: Produto): void {
+    this.carregarProdutos();
+  }
 }

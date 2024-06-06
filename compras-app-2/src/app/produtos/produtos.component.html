@@ -44,7 +44,7 @@
         <ng-template pTemplate="rowexpansion" let-item >
             <tr>
                 <td colspan="6">
-                    <app-produto-frm [produto]="item"></app-produto-frm>
+                    <app-produto-frm [produto]="item" (produtoAtualizado)="onProdutoAtualizado(item)"></app-produto-frm>
                 </td>
             </tr>
         </ng-template>

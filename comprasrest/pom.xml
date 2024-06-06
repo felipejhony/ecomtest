@@ -43,8 +43,7 @@
 
 	<dependencies>
 
-		<!-- FAZER O REST FUNCIONAR -->
-
+		<!-- DEPENDENCIA PARA O REST -->
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet-core</artifactId>
@@ -58,7 +57,7 @@
 			<artifactId>jersey-hk2</artifactId>
 		</dependency>
 
-		<!-- DEPENDENCIA PARA O INTERCEPTOR -->
+		<!-- DEPENDENCIA PARA O FILTER -->
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
@@ -66,7 +65,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- FAZER JSON FUNCIONAR -->
+		<!-- DEPENDENCIA PARA O JSON -->
 		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-json-binding</artifactId>
@@ -79,6 +78,7 @@
 			<version>5.4.4.Final</version>
 		</dependency>
 
+		<!-- CONNECTOR MYSQL -->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>

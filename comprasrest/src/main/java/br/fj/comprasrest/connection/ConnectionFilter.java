@@ -27,7 +27,8 @@ public class ConnectionFilter implements Filter {
 
 		try {
 			
-			em.getTransaction().begin();
+			if(!em.getTransaction().isActive())
+				em.getTransaction().begin();
 			
 			request.setAttribute("entityManager", em);
 			

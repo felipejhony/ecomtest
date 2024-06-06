@@ -1,28 +1,32 @@
 <p-card header="Alteração">
     <form [formGroup]="produtoForm" (ngSubmit)="onSubmit()">
         <div class="p-field">
-            <div *ngIf="produtoForm.get('imagem')?.invalid && produtoForm.get('imagem')?.touched" class="validation-error">
+            <div *ngIf="produtoForm.get('imagem')?.invalid && produtoForm.get('imagem')?.touched"
+                class="validation-error">
                 Link da Imagem é obrigatório.
             </div>
             <label for="image">Link da Imagem</label>
             <input id="image" type="text" formControlName="imagem" pInputText />
         </div>
         <div class="p-field description">
-            <div *ngIf="produtoForm.get('descricao')?.invalid && produtoForm.get('descricao')?.touched" class="validation-error">
+            <div *ngIf="produtoForm.get('descricao')?.invalid && produtoForm.get('descricao')?.touched"
+                class="validation-error">
                 Descrição é obrigatória.
             </div>
             <label for="description">Descrição do Produto</label>
             <input id="description" type="text" pInputText formControlName="descricao" />
         </div>
         <div class="p-field">
-            <div *ngIf="produtoForm.get('categoria')?.invalid && produtoForm.get('categoria')?.touched" class="validation-error">
+            <div *ngIf="produtoForm.get('categoria')?.invalid && produtoForm.get('categoria')?.touched"
+                class="validation-error">
                 Categoria é obrigatória.
             </div>
             <label for="category">Categoria do Produto</label>
             <input id="category" type="text" pInputText formControlName="categoria" />
         </div>
         <div class="p-field">
-            <div *ngIf="produtoForm.get('preco')?.invalid && produtoForm.get('preco')?.touched" class="validation-error">
+            <div *ngIf="produtoForm.get('preco')?.invalid && produtoForm.get('preco')?.touched"
+                class="validation-error">
                 Preço deve ser maior que zero.
             </div>
             <label for="price">Preço</label>
@@ -30,7 +34,9 @@
                 formControlName="preco"></p-inputNumber>
         </div>
         <div style="align-content: end;">
-            <p-button [rounded]="true" severity="primary" type="submit" [disabled]="produtoForm.invalid" styleClass="full-width-btn" label="Salvar" />
+            <p-button [rounded]="true" severity="primary" type="submit" [disabled]="produtoForm.invalid"
+                styleClass="full-width-btn" label="Salvar" />
         </div>
     </form>
+    <p-toast></p-toast>
 </p-card>

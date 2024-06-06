@@ -39,11 +39,7 @@ public class ProdutoEP {
 		
 		EntityManager em = (EntityManager) request.getAttribute("entityManager");
     	
-    	em.getTransaction().begin();
-    	
         em.merge(produto);
-        
-        em.getTransaction().commit();
         
         return Response.ok().build();
     }

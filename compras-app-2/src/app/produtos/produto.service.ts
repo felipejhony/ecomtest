@@ -15,4 +15,10 @@ export class ProdutoService {
     return this.http.get<Produto[]>(environment.apiUrl + "/produto");
     
   }
+
+  atualizaProduto(produto: any) {
+    
+    return this.http.post<any>(environment.apiUrl + "/produto", produto);
+
+  }
 }
