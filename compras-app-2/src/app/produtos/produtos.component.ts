@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MyServiceService } from '../my-service.service';
 import { Produto } from '../models/produto';
+import { ProdutoService } from './produto.service';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { Produto } from '../models/produto';
 })
 export class ProdutosComponent implements OnInit {
 
-  constructor(private myService: MyServiceService) {
+  constructor(private service: ProdutoService) {
   }
 
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class ProdutosComponent implements OnInit {
 
   carregarProdutos(): void {
 
-    this.myService.getProds().subscribe((prods) => {
+    this.service.getProds().subscribe((prods) => {
       this.produtos = prods;
     });
 

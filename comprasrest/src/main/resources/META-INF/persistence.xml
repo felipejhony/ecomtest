@@ -7,7 +7,7 @@
     <persistence-unit name="comprasrest.pu" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Adicione aqui as classes de suas entidades -->
-        <class>br.fj.comprasrest.Produto</class>
+        <class>br.fj.comprasrest.domain.Produto</class>
        
         <!-- Configurações do banco de dados -->
         <properties>
