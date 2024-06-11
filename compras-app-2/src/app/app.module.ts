@@ -17,6 +17,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
+import { ToolbarModule } from 'primeng/toolbar';
 
 
 
@@ -42,7 +43,8 @@ import { ToastModule } from 'primeng/toast';
     InputNumberModule,
     ReactiveFormsModule,
     FormsModule,
-    ToastModule
+    ToastModule,
+    ToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

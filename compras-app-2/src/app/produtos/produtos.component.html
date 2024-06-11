@@ -1,14 +1,28 @@
 <p-card header="Produtos">
-    <p-table [value]="produtos"
-    dataKey="id"
-    responsiveLayout="stack" 
-    [breakpoint]="'800px'"
-    styleClass="p-datatable-header p-datatable-striped p-datatable-sm p-datatable-gridlines">
+
+    <p-toolbar>
+
+        <ng-template pTemplate="left">
+            <div class="mr-button">
+                <p-button pRipple severity="success" label="New" icon="pi pi-plus" />
+            </div>
+            <div>
+                <p-button pRipple severity="danger" label="Delete" icon="pi pi-trash" />
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="right">
+            <p-button pRipple severity="help" label="Export" icon="pi pi-upload" />
+        </ng-template>
+    </p-toolbar>
+
+    <p-table [value]="produtos" dataKey="id" responsiveLayout="stack" [breakpoint]="'800px'"
+        styleClass="p-datatable-header p-datatable-striped p-datatable-sm p-datatable-gridlines">
 
         <ng-template pTemplate="header">
             <tr>
                 <th></th>
-                <th  class="center-text">Código</th>
+                <th class="center-text">Código</th>
                 <th class="center-text">Imagem</th>
                 <th>Descrição</th>
                 <th>Categoria</th>
@@ -18,30 +32,30 @@
         <ng-template pTemplate="body" let-item let-expanded="expanded">
             <tr>
                 <td>
-                    
-                    <button type="button" pButton pRipple [pRowToggler]="item"
-                        pTooltip="Clique para alterar" 
-                        tooltipPosition="top" 
-                        class="p-button-text p-button-rounded p-button-plain mr-2"
+
+                    <button type="button" pButton pRipple [pRowToggler]="item" pTooltip="Clique para alterar"
+                        tooltipPosition="top" class="p-button-text p-button-rounded p-button-plain mr-2"
                         [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
                     </button>
                 </td>
 
                 <td class="center-text bold-text"><span class="p-column-title">Código</span> {{ item.id }}</td>
 
-                <td class="center-text"><span class="p-column-title">Imagem</span> <p-image src="{{item.imagem}}" previewImageSrc="{{item.imagem}}" alt="Image" [preview]="true"
-                        width="100" styleClass="table-image" /></td>
+                <td class="center-text"><span class="p-column-title">Imagem</span> <p-image src="{{item.imagem}}"
+                        previewImageSrc="{{item.imagem}}" alt="Image" [preview]="true" width="100"
+                        styleClass="table-image" /></td>
                 <td class="bold-text">{{item.descricao}}</td>
 
-                <td class="center-text"> <span class="p-column-title">Categoria</span> <p-tag severity="warning" [rounded]="true" styleClass="full-width-text"
-                        value="{{item.categoria}}" /></td>
+                <td class="center-text"> <span class="p-column-title">Categoria</span> <p-tag severity="warning"
+                        [rounded]="true" styleClass="full-width-text" value="{{item.categoria}}" /></td>
 
-                <td class="center-text"><span class="p-column-title">Preço</span> <p-button [rounded]="true" severity="primary"  styleClass="full-width-btn" label="{{ item.preco | currency:'BRL'}}" />
+                <td class="center-text"><span class="p-column-title">Preço</span> <p-button [rounded]="true"
+                        severity="primary" styleClass="full-width-btn" label="{{ item.preco | currency:'BRL'}}" />
                 </td>
             </tr>
         </ng-template>
 
-        <ng-template pTemplate="rowexpansion" let-item >
+        <ng-template pTemplate="rowexpansion" let-item>
             <tr>
                 <td colspan="6">
                     <app-produto-frm [produto]="item" (produtoAtualizado)="onProdutoAtualizado(item)"></app-produto-frm>
