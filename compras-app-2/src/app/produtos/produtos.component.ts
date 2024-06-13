@@ -34,12 +34,9 @@ export class ProdutosComponent implements OnInit {
 
   onProdutoAtualizado(produtoAtualizado: Produto): void {
     
-    setTimeout(() => {
-      this.carregarProdutos();
-      this.expanded = false;
-    }, 1000);
-    
-    this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Atualizado com sucesso!' });
+    this.carregarProdutos();
+    this.expanded = false;
+    this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Atualizado com sucesso!'});
   }
 
   toggleExpanded(): void {
@@ -47,6 +44,10 @@ export class ProdutosComponent implements OnInit {
   }
 
   deletar(item: Produto): void {
-
+    
+    this.service.deletaProduto(item).subscribe(() => {
+      this.carregarProdutos();
+      this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Removido com sucesso!'});
+    });
   }
 }

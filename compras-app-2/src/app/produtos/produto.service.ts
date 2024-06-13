@@ -16,9 +16,16 @@ export class ProdutoService {
     
   }
 
-  atualizaProduto(produto: any) {
+  atualizaProduto(produto: Produto) {
     
-    return this.http.post<any>(environment.apiUrl + "/produto", produto);
+    return this.http.post<Produto>(environment.apiUrl + "/produto", produto);
 
   }
+
+  deletaProduto(produto: Produto) {
+    
+    return this.http.delete<Produto>(environment.apiUrl + "/produto", {body: produto});
+
+  }
+  
 }

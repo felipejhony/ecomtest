@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import br.fj.comprasrest.domain.Produto;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -23,6 +24,7 @@ public class ProdutoEP {
 	@GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getProdutos(@Context HttpServletRequest request) {
+    	
     	
     	EntityManager em = (EntityManager) request.getAttribute("entityManager");
     	
@@ -41,6 +43,24 @@ public class ProdutoEP {
     	
         em.merge(produto);
         
+        return Response.ok().build();
+    }
+	
+	@DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response deletarProduto(Produto produto, @Context HttpServletRequest request) {
+		
+		EntityManager em = (EntityManager) request.getAttribute("entityManager");
+		
+		Produto produtoGerenciado = em.find(Produto.class, produto.getId());
+		
+		if (produtoGerenciado != null) {
+	        em.remove(produtoGerenciado);
+	    } else {
+	        em.getTransaction().rollback();
+	        return Response.status(Response.Status.NOT_FOUND).build();
+	    }
+    	
         return Response.ok().build();
     }
   
