@@ -16,8 +16,9 @@
         </ng-template>
     </p-toolbar>
 
-    <p-table [value]="produtos" dataKey="id" responsiveLayout="stack" [breakpoint]="'800px'"
-        styleClass="p-datatable-header p-datatable-striped p-datatable-sm p-datatable-gridlines">
+    <p-table #dt [value]="produtos" dataKey="id" responsiveLayout="stack" [breakpoint]="'800px'"
+        styleClass="p-datatable-header p-datatable-striped p-datatable-sm p-datatable-gridlines"
+        [appExpandRows]="expanded" [table]="dt">
 
         <ng-template pTemplate="header">
             <tr>
@@ -26,7 +27,7 @@
                 <th class="center-text">Imagem</th>
                 <th>Descrição</th>
                 <th>Categoria</th>
-                <th>Preço</th>
+                <th colspan="2">Preço</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-item let-expanded="expanded">
@@ -35,7 +36,8 @@
 
                     <button type="button" pButton pRipple [pRowToggler]="item" pTooltip="Clique para alterar"
                         tooltipPosition="top" class="p-button-text p-button-rounded p-button-plain mr-2"
-                        [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                        [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+                        (click)="toggleExpanded()">
                     </button>
                 </td>
 
@@ -52,12 +54,22 @@
                 <td class="center-text"><span class="p-column-title">Preço</span> <p-button [rounded]="true"
                         severity="primary" styleClass="full-width-btn" label="{{ item.preco | currency:'BRL'}}" />
                 </td>
+
+                <td class="center-text">
+                    <p-button 
+                        pRipple 
+                        icon="pi pi-trash" 
+                        severity="danger" 
+                        [rounded]="true" 
+                        [outlined]="true" 
+                        (click)="deletar(item)" />
+                </td>
             </tr>
         </ng-template>
 
         <ng-template pTemplate="rowexpansion" let-item>
             <tr>
-                <td colspan="6">
+                <td colspan="7">
                     <app-produto-frm [produto]="item" (produtoAtualizado)="onProdutoAtualizado(item)"></app-produto-frm>
                 </td>
             </tr>

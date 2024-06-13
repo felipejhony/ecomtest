@@ -2,17 +2,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Produto } from '../../models/produto';
 import { ProdutoService } from '../produto.service';
-import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-produto-frm',
   templateUrl: './produto-frm.component.html',
-  styleUrl: './produto-frm.component.scss',
-  providers: [MessageService]
+  styleUrl: './produto-frm.component.scss'
 })
 export class ProdutoFrmComponent implements OnInit {
 
-  constructor(private service: ProdutoService, private messageService: MessageService) {
+  constructor(private service: ProdutoService) {
   }
 
   @Input() produto: Produto = new Produto;
@@ -33,10 +31,7 @@ export class ProdutoFrmComponent implements OnInit {
 
   onSubmit() {
     this.service.atualizaProduto(this.produtoForm.getRawValue()).subscribe(() => {
-      console.log("Cheguei");
       
-      this.messageService.add({severity:'success', summary: 'Sucesso', detail: 'Atualizado com sucesso!'});
-
       this.produtoAtualizado.emit(this.produto);
     });
   }

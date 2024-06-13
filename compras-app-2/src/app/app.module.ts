@@ -18,6 +18,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
+import { ExpandRowsDirective } from './directives/expand-rows.directive';
+
 
 
 
@@ -25,7 +27,8 @@ import { ToolbarModule } from 'primeng/toolbar';
   declarations: [
     AppComponent,
     ProdutosComponent,
-    ProdutoFrmComponent
+    ProdutoFrmComponent,
+    ExpandRowsDirective
   ],
   imports: [
     BrowserModule,
