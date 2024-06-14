@@ -17,6 +17,9 @@ export class ProdutosComponent implements OnInit {
 
   produtos: Produto[] = [];
   expanded: boolean = true;
+  produto!: Produto;
+  submitted: boolean = false;
+  produtoDialog: boolean = false
 
   constructor(private service: ProdutoService, private messageService: MessageService) {
   }
@@ -33,10 +36,18 @@ export class ProdutosComponent implements OnInit {
   }
 
   onProdutoAtualizado(produtoAtualizado: Produto): void {
-    
+
     this.carregarProdutos();
     this.expanded = false;
-    this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Atualizado com sucesso!'});
+    this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Atualizado com sucesso!' });
+  }
+
+  onProdutoNovo(produtoAtualizado: Produto): void {
+    
+    this.produtoDialog = false;
+    this.expanded = false;
+    this.carregarProdutos();
+    this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Novo produto adicionado!' });
   }
 
   toggleExpanded(): void {
@@ -44,10 +55,15 @@ export class ProdutosComponent implements OnInit {
   }
 
   deletar(item: Produto): void {
-    
+
     this.service.deletaProduto(item).subscribe(() => {
       this.carregarProdutos();
-      this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Removido com sucesso!'});
+      this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Removido com sucesso!' });
     });
+  }
+
+  abrirNovo() {
+    this.produto = new Produto();
+    this.produtoDialog = true;
   }
 }

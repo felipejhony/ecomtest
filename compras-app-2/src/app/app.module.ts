@@ -19,8 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ExpandRowsDirective } from './directives/expand-rows.directive';
-
-
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
@@ -47,7 +46,8 @@ import { ExpandRowsDirective } from './directives/expand-rows.directive';
     ReactiveFormsModule,
     FormsModule,
     ToastModule,
-    ToolbarModule
+    ToolbarModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

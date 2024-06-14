@@ -14,6 +14,7 @@ export class ProdutoFrmComponent implements OnInit {
   }
 
   @Input() produto: Produto = new Produto;
+  @Input() novo: boolean = false;
 
   @Output() produtoAtualizado = new EventEmitter<Produto>();
 
@@ -30,10 +31,15 @@ export class ProdutoFrmComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.atualizaProduto(this.produtoForm.getRawValue()).subscribe(() => {
-      
-      this.produtoAtualizado.emit(this.produto);
-    });
+    if (this.novo) {
+      this.service.novoProduto(this.produtoForm.getRawValue()).subscribe(() => {
+        this.produtoAtualizado.emit(this.produto);
+      });
+    } else {
+      this.service.atualizaProduto(this.produtoForm.getRawValue()).subscribe(() => {
+        this.produtoAtualizado.emit(this.produto);
+      });
+    }
   }
 
 }

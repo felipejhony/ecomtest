@@ -13,19 +13,25 @@ export class ProdutoService {
   getProds() {
 
     return this.http.get<Produto[]>(environment.apiUrl + "/produto");
-    
+
   }
 
   atualizaProduto(produto: Produto) {
-    
-    return this.http.post<Produto>(environment.apiUrl + "/produto", produto);
+
+    return this.http.patch<Produto>(environment.apiUrl + "/produto", produto);
 
   }
 
   deletaProduto(produto: Produto) {
-    
-    return this.http.delete<Produto>(environment.apiUrl + "/produto", {body: produto});
+
+    return this.http.delete<Produto>(environment.apiUrl + "/produto", { body: produto });
 
   }
-  
+
+  novoProduto(produto: Produto) {
+
+    return this.http.post<Produto>(environment.apiUrl + "/produto", produto);
+
+  }
+
 }
